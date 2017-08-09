@@ -1,9 +1,11 @@
 package com.example.demo;
 
 import com.example.demo.Controller.UserController;
+import com.example.demo.Domain.UserRedisRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -21,16 +23,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UserControllerTests {
 
     private MockMvc mvc;
+    @Autowired
+    private UserRedisRepository userRedisRepository;
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(new UserController(userRedisRepository)).build();
     }
 
     @Test
     public void testUserController() throws Exception {
         // 测试UserController
         RequestBuilder request;
+
+        //0、 清空全部用户
+        request = delete("/users/");
+        mvc.perform(request).andExpect(content().string(equalTo("success")));
 
         // 1、get查一下user列表，应该为空
         request = get("/users/");

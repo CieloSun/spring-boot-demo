@@ -17,4 +17,8 @@ public class HelloController {
         modelMap.addAttribute("title","Cielo's Home");
         return "index";
     }
+    @GetMapping("errorTest")
+    public String errorTest() throws Exception{
+        throw new Exception("发生错误！");
+    }
 }
