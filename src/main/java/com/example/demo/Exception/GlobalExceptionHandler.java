@@ -11,6 +11,7 @@ import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+//    //返回一个自定义的报错页面
 //    public static final String DEFAULT_ERROR_VIEW="error";
 //    @ExceptionHandler(value = Exception.class)
 //    public ModelAndView defaultErrorHandler(HttpServletRequest httpServletRequest,Exception e) throws Exception{
@@ -20,6 +21,7 @@ public class GlobalExceptionHandler {
 //        modelAndView.setViewName(DEFAULT_ERROR_VIEW);
 //        return modelAndView;
 //    }
+    //返回一个自定义的报错Json
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public Map jsonErrorHandler(HttpServletRequest httpServletRequest, Exception e) throws Exception{
