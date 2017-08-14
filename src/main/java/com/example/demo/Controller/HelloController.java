@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping
 public class HelloController {
     @GetMapping("hello")
-    @ResponseBody
     public String index(){
-        return "Hello World";
+        return "hello";
     }
     @GetMapping
     public String page(ModelMap modelMap){
@@ -23,5 +22,9 @@ public class HelloController {
     @ResponseBody
     public String errorTest() throws Exception{
         throw new Exception("发生错误！");
+    }
+    @RequestMapping("login")
+    public String login(){
+        return "login";
     }
 }
