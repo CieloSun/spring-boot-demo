@@ -31,6 +31,12 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
+		<!--Spring AOP-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
 		<!--使用Spring boot开发web项目-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -71,12 +77,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>
-
-		<!--Spring AOP-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
 
