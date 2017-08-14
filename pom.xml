@@ -50,14 +50,9 @@
 
 		<!-- 使用Swagger2生成API文档-->
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>${swager.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${swager.version}</version>
+			<groupId>com.didispace</groupId>
+			<artifactId>spring-boot-starter-swagger</artifactId>
+			<version>1.1.0.RELEASE</version>
 		</dependency>
 
 		<!--使用JPA-->
@@ -76,6 +71,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<!--Spring AOP-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
 
