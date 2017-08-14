@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class HelloControllerTest {
+public class HelloControllerTests {
     private MockMvc mockMvc;
     @Before
     public void setUp() throws Exception{

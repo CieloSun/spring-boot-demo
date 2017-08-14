@@ -1,7 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.Controller.UserController;
-import com.example.demo.Domain.UserRedisRepository;
+import com.example.demo.Domain.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,11 +24,11 @@ public class UserControllerTests {
 
     private MockMvc mvc;
     @Autowired
-    private UserRedisRepository userRedisRepository;
+    private UserRepository userRepository;
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new UserController(userRedisRepository)).build();
+        mvc = MockMvcBuilders.standaloneSetup(new UserController(userRepository)).build();
     }
 
     @Test
