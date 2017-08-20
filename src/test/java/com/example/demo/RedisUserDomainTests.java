@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.Domain.User;
-import com.example.demo.Domain.UserRepository;
+import com.example.demo.Domain.RedisUser;
+import com.example.demo.Domain.RedisUserRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,11 +15,11 @@ import javax.transaction.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @Transactional
-public class UserDomainTests {
+public class RedisUserDomainTests {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
-    private UserRepository userRepository;
+    private RedisUserRepository redisUserRepository;
     @Test
     public void testStringRedis() throws Exception{
         stringRedisTemplate.opsForValue().set("Cielo","Good Boy");
@@ -27,11 +27,11 @@ public class UserDomainTests {
     }
     @Test
     public void testObjectRedis() throws Exception{
-        User user=new User();
-        user.setId(1l);
-        user.setName("Cielo");
-        user.setAge(22);
-        userRepository.save(user);
-        Assert.assertEquals(user.getName(), userRepository.findOne(1l).getName());
+        RedisUser redisUser =new RedisUser();
+        redisUser.setId(1l);
+        redisUser.setName("Cielo");
+        redisUser.setAge(22);
+        redisUserRepository.save(redisUser);
+        Assert.assertEquals(redisUser.getName(), redisUserRepository.findOne(1l).getName());
     }
 }

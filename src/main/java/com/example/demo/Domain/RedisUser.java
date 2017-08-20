@@ -1,26 +1,16 @@
 package com.example.demo.Domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
 
-@Entity
-public class Student {
+@RedisHash
+public class RedisUser {
     @Id
-    @GeneratedValue
     private Long id;
-    @Column(nullable = false,length = 10)
     private String name;
-    @Column(nullable = false)
     private Integer age;
 
-    public Student() {
-    }
-
-    public Student(String name, Integer age) {
-        this.name = name;
-        this.age = age;
+    public RedisUser() {
     }
 
     public Long getId() {

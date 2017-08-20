@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.Controller.UserController;
-import com.example.demo.Domain.UserRepository;
+import com.example.demo.Controller.RedisUserController;
+import com.example.demo.Domain.RedisUserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,15 +20,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class UserControllerTests {
+public class RedisUserControllerTests {
 
     private MockMvc mvc;
     @Autowired
-    private UserRepository userRepository;
+    private RedisUserRepository redisUserRepository;
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new UserController(userRepository)).build();
+        mvc = MockMvcBuilders.standaloneSetup(new RedisUserController(redisUserRepository)).build();
     }
 
     @Test

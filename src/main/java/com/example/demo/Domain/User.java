@@ -1,16 +1,29 @@
 package com.example.demo.Domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
-@RedisHash("user")
-public class User{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class User {
     @Id
+    @GeneratedValue
     private Long id;
-    private String name;
-    private Integer age;
+    @Column
+    private String nickName;
+    @Indexed
+    @Column(nullable = false)
+    private String email;
+    @Column(nullable = false)
+    private String password;
 
-    public User() {
+    public User(String nickName, String email, String password) {
+        this.nickName = nickName;
+        this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -21,19 +34,27 @@ public class User{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

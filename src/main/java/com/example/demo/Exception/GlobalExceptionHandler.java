@@ -1,6 +1,7 @@
 package com.example.demo.Exception;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,7 +27,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Map jsonErrorHandler(HttpServletRequest httpServletRequest, Exception e) throws Exception {
         Map map = new HashMap();
-        if (e.getMessage() != null) map.put("message", e.getMessage());
+        if (StringUtils.hasLength(e.getMessage())) map.put("message", e.getMessage());
         map.put("code", HttpStatus.CONTINUE);
         map.put("data", "No data");
         map.put("url", httpServletRequest.getRequestURL());
