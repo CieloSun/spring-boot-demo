@@ -23,8 +23,4 @@ public class HelloController {
     public String errorTest() throws Exception{
         throw new Exception("发生错误！");
     }
-    @RequestMapping("login")
-    public String login(){
-        return "login";
-    }
 }

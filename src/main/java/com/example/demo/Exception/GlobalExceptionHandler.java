@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Map jsonErrorHandler(HttpServletRequest httpServletRequest, Exception e) throws Exception {
         Map map = new HashMap();
-        if (StringUtils.hasLength(e.getMessage())) map.put("message", e.getMessage());
+        if (StringUtils.hasText(e.getMessage())) map.put("message", e.getMessage());
         map.put("code", HttpStatus.CONTINUE);
         map.put("data", "No data");
         map.put("url", httpServletRequest.getRequestURL());

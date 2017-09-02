@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("users")     // 通过这里配置使下面的映射都在/users下，可去除
+@RequestMapping("redisTest")     // 通过这里配置使下面的映射都在/users下，可去除
 public class RedisUserController {
     private final RedisUserRepository redisUserRepository;
 
